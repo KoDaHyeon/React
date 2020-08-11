@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App'; //현재 디렉토리의 App.js파일에서 App컴포넌트를 load
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root') //괄호속 string이 index.html의 div 태그의 id와 같아야 함
+  <App />, //App컴포넌트를 실행 
+           //이 코드가 내부적으로 state값이 subject가 있는지 없는지 모름
+           //외부에서 알 필요가 없는 정보는 은닉해야함
+  document.getElementById('root')
 );
 
 serviceWorker.unregister();

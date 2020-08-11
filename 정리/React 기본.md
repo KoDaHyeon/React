@@ -55,13 +55,13 @@
 
        - 개발중인 웹페이지가 자동으로 뜸
     
-   -   Local:            http://localhost:3000
+       -   Local:            http://localhost:3000 <br>
            On Your Network:  http://192.168.0.13:3000
-
-         가 cmd에 뜸
+            <br>
+           가 cmd에 뜸
 
          - 내가 개발중인 웹앱을 확인할 수 있는 주소
-    
+         
     5. 실행을 종료하고 싶을 때 : $ Ctrl+C
 
 <br><br>
@@ -122,11 +122,11 @@
       ```js
       return(
       	<div className="App">이 안에 태그들이 모두 포함</div>
-    );
+       );
       ```
     
       ```js
-    return(
+       return(
       	<header>
       		<h1>WEB</h1>
       	</header>
@@ -158,9 +158,9 @@
 
   - 한번만 실행시킬 웹서버를 다운(npx serve)받아서, 실행시킬때 build디렉토리를 root로 하겠다(-s build)
 
-  -    │   - Local:            http://localhost:5000 
-     │
-     │   - On Your Network:  http://192.168.0.13:50
+  -  │   - Local:            http://localhost:5000 
+ <br>│
+ <br>│   - On Your Network:  http://192.168.0.13:50
 
      이렇게 주소를 줌
 

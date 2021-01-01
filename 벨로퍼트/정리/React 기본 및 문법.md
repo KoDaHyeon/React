@@ -39,8 +39,8 @@
 1. 프로젝트 폴더를 만들려는 위치에서
 
    ```
-   $ npm create-react-app {프로젝트 폴더 이름}
-   $ npm create-react-app begin-react
+   $ npx create-react-app {프로젝트 폴더 이름}
+   $ npx create-react-app begin-react
    ```
 
    를 입력하면 폴더가 생기고 그 안에 리액트 프로젝트가 생성됨.
@@ -70,9 +70,10 @@
    
    //함수 형태로 컴포넌트를 작성하는 경우
    function Hello(){
-     const name = 'hello'; //return밖에 작성할 수도 있음
+     const name = 'hello'; //return밖에 자바스크립트 코드를 작성할 수도 있음
      return(
          //이 안에, 외부에서 Hello컴포넌트를 불러왔을 때 거기에 return할 내용이 들어감
+         //JSX
      );
    }
    

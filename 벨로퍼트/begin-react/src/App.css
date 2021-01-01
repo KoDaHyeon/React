@@ -1,0 +1,6 @@
+.gray-box{
+  background: gray;
+  width: 64px;
+  height: 64px;
+}
+/* class의 속성일땐 .을 붙임*/

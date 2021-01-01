@@ -5,10 +5,10 @@ class TOC extends Component{
 
     render(){
       var lists=[]; //ul태그로 묶을 li태그들을 넣을 배열
-      var data=this.props.data; //부모 컴포넌트(App)에서 보내온 props를 받아 변수data에 넣음
+      var data=this.props.data;
       var i=0; //반복문을 props의 data길이(배열요소의 개수)만큼 반복
       while(i<data.length){
-        lists.push(<li key={data[i].id}><a href={"/content/"+data[i].id}>					{data[i].title}</a></li>); 
+        lists.push(<li key={data[i].id}><a href={"/content/"+data[i].id}>{data[i].title}</a></li>); 
         //lists.push : li태그가 하나씩 생성돼서 list에 담김
         //App의 state값을 수정해도 TOC.js의 로직을 수정하지 않아도 됨
         //key={data[i].id} : 여러개의 목록을 자동생성할때 key라는 props가 없으면 오류가 뜸

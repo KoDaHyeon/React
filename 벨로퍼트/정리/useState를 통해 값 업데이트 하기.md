@@ -29,7 +29,7 @@
 
 <br>
 
-- Setter함수의 파라미터로 **새로운 값**을 주는 경우(A)
+- Setter함수의 파라미터로 **새로운 값**을 주는 경우
 
   ```jsx
   setNumber(number+1);
@@ -37,7 +37,7 @@
   //파라미터로 '그 다음 상태'를 넣어줌
   ```
 
-- Setter함수의 파라미터로 **함수**를 주는 경우 : **함수형 업데이트**(B)
+- Setter함수의 파라미터로 **함수**를 주는 경우 : **함수형 업데이트**
 
   ```jsx
   setNumber(prevNumber => prevNumber-1);
@@ -138,3 +138,13 @@
     - '실행할함수이름'만 넣어줘야 함
 
     - onIncrease()이렇게 괄호까지 넣으면 렌더링되는 시점에 함수가 호출되버림.
+
+<br>
+
+---
+
+참고
+
+화살표 함수 : https://learnjs.vlpt.us/basics/05-function.html#%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98
+
+비구조화 할당: https://learnjs.vlpt.us/useful/06-destructuring.html#%EB%B0%B0%EC%97%B4-%EB%B9%84%EA%B5%AC%EC%A1%B0%ED%99%94-%ED%95%A0%EB%8B%B9

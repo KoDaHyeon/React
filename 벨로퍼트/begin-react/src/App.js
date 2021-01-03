@@ -1,26 +1,16 @@
 import React from 'react';
-import Hello from './Hello'; 
-// ./Hello.js파일에서 Hello 컴포넌트를 import -> 이제 Hello 컴포넌트를 사용할 수 있음
-// 뒤에 .js는 빼도 됨
-// Hello 컴포넌트는 여러번 재사용 가능
-import './App.css';
+import Hello from './Hello';
+import Wrapper from './Wrapper';
 
 function App() {
-  const name = 'react';
-  const style = {
-    backgroundColor: 'black',
-    color: 'aqua',
-    fontSize: 24,
-    padding: '1rem'
-  }
 
   return (
-    <div>
-      <Hello />
-      <Hello />
-      <div style={style}>{name}</div>
-      <div className="gray-box"></div>
-    </div>
+    <Wrapper>
+      <Hello name="react" color="red" isSpecial={true} />
+      {/*Hello 컴포넌트에 name, color 값을 전달*/}
+      <Hello color="pink" />
+      {/*name값을 지정하지 않았으므로 defaultProps의 name값이 사용됨*/}
+    </Wrapper>
   );
 }
 

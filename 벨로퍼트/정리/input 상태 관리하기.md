@@ -48,45 +48,45 @@
   }
   
   export default InputSample;
-```
+  ```
   
-- on이벤트이름={실행할함수이름}
+  - **on이벤트이름={실행할함수이름}**
   
-  - 이벤트가 일어나면 함수가 실행됨
+    - 이벤트가 일어나면 함수가 실행됨
   
-  - **onChange**
+    - **onChange**
   
-    : 내용에 변화가 일어나면 지정한 함수가 실행됨
+      : 내용에 변화가 일어나면 지정한 함수가 실행됨
   
-      ```jsx
-      <input onChange={onChange} value={text} />
-      //input의 입력란에 변화가 일어나면 onChange함수가 실행됨
-      
-      //value = 렌더링될때 초기값
-      //value={text+1}이라고 두면, 2를 입력했을 때 onChange함수에 의해 text=2가 되고 input이 렌더링될때 초기값 value={2+1}이므로 '21'이 입력란에 표시됨
-    //초기화 버튼을 누르면 onReset이 호출돼 text=''이 되어 value=''이 되고 리렌더링돼 입력란이 비워짐 
-    ```
+        ```jsx
+        <input onChange={onChange} value={text} />
+        //input의 입력란에 변화가 일어나면 onChange함수가 실행됨
+        
+        //value = 렌더링될때 초기값
+        //value={text+1}이라고 두면, 2를 입력했을 때 onChange함수에 의해 text=2가 되어 리렌더링될 때, input의 초기값 value={2+1}이므로 '21'이 입력란에 표시됨
+      //초기화 버튼을 누르면 onReset이 호출돼 text=''이 되어 리렌더링될 때, value=''이 되어 입력란이 비워짐 
+        ```
   
   - 이벤트에 등록하는 함수는 이벤트 객체 e를 파라미터로 받아올 수 있음
-    
-      ```jsx
-      const onChange = (e) => {
-          setText(e.target.value);
-      }
-      //input 입력란에 변화가 일어나 onChange함수가 실행될때 이벤트객체 e가 파라미터로 넘어감
-      //e.target == 이벤트가 발생한 DOM(즉 input DOM)
-      //e.target.value == input DOM에 입력한 값
+  
+    ```jsx
+    const onChange = (e) => {
+        setText(e.target.value);
+    }
+    //input 입력란에 변화가 일어나 onChange함수가 실행될때 이벤트객체 e가 파라미터로 넘어감
+    //e.target == 이벤트가 발생한 DOM(즉 input DOM)
+    //e.target.value == input DOM에 입력한 값
     //e.target.value값으로 text의 값을 업데이트함
     ```
   
   
-  - input
+    - input
   
-    ```jsx
-    <input />
-    ```
+      ```jsx
+      <input />
+      ```
   
-    - 텍스트를 입력하는 입력란
+      - 텍스트를 입력하는 입력란
 
 <br>
 
@@ -197,7 +197,7 @@
     2. 변화를 onChange가 감지해서 onChange함수 호출
     3. 비구조화 할당에 의해 value=e.target.value, name=e.target.name
     4. inputs를 setInputs를 통해 만든 새 객체로 바꿔치기함
-    5. 리렌더링됨(바뀐 {name}, {nickname}이 적용됨)
+    5. 리렌더링되어 (=InputSample 함수가 다시 호출됨) 바뀐 {name}, {nickname}이 적용됨
     6. name="name"인 input란('고'가 쓰여진 상태)에 '다'가 쓰여짐-> e.target.value='고다'
 
        ...

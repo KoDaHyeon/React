@@ -147,6 +147,20 @@
 
     - onIncrease()이렇게 괄호까지 넣으면 렌더링되는 시점에 함수가 호출되버림.
 
+  - cf) 실행할 함수가 **파라미터를 받아올 때**는
+
+    on이벤트이름={() => 실행할함수이름(파라미터)}
+
+    ```jsx
+    <button onClick={() => onRemove(user.id)}>삭제</button>
+    ```
+
+    - 이유 추측(그냥 내 추측임! 쉬운 암기를 위해 작성)
+
+      - onClick={onRemove(user.id)}라고 하면 렌더링시 onRemove가 바로 호출되어버림
+
+      - onClick={() => onRemove(user.id)}라고 하면 이벤트가 일어날 때 {}속 함수가 호출되기 때문에 onRemove함수가 호출됨
+
 <br>
 
 ---

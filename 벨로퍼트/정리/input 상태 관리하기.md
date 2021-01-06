@@ -173,26 +173,33 @@
       });
     //이 새로운 객체로 상태를 지정해줘야 함
       ```
-
-  - **spread 문법**
+    
+      - `[name]: value` : [name]은 name 또는 nickname
+    
+        즉 여기서 name은 props로 받아온 문자열이고, 이 name이 "name"인지 "nickname"인지에 따라 키가 달라짐
+      
+      - `name: value` : 그냥 키 이름이 "name"
+  
+  - ### spread 문법
 
     - 객체/배열을 '펼쳐서' 복사해옴(객체/배열의 내용을 복사해온다고 생각)
-  
+
     - ```jsx
-    ... 객체/배열이름
+  ... 객체/배열이름
       ```
 
     - 참고 : https://learnjs.vlpt.us/useful/07-spread-and-rest.html
-
+  
   - placeholder 속성
-
-    - input 입력란에 아무것도 입력되지 않았을 때 디폴트로 쓰여져있는 문구
-
+  
+  - input 입력란에 아무것도 입력되지 않았을 때 디폴트로 쓰여져있는 문구
+  
   - value 속성
   
   - input 입력란이 렌더링될 때 입력되어있는 초기값
-    - placeholder는 뭔가를 입력하면 자동으로 없어지지만, value는 직접 지워야함
-
+    
+  - placeholder는 뭔가를 입력하면 자동으로 없어지지만, value는 직접 지워야함
+    
   - 메커니즘
   
     1. name="name"인 input란에 '고'가 쓰여짐 -> e.target.value='고'

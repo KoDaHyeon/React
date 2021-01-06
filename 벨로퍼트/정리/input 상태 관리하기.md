@@ -158,26 +158,28 @@
 
     - 객체를 직접 수정하면 안됨
 
+      - 객체의 불변성을 유지하기 위함
+  
       ```jsx
-      inputs[name] = value; //(x)
+    inputs[name] = value; //(x)
       ```
 
     - **새로운 상태의 객체를 따로 만들어서, 이 객체를 상태로 지정해줘야 함**
-
+  
       ```jsx
       setInputs({
         ...inputs, //기존 inputs객체를 펼쳐서 복사(spread)
         [name]: value //객체 수정
       });
-      //이 새로운 객체로 상태를 지정해줘야 함
+    //이 새로운 객체로 상태를 지정해줘야 함
       ```
 
   - **spread 문법**
 
     - 객체/배열을 '펼쳐서' 복사해옴(객체/배열의 내용을 복사해온다고 생각)
-
+  
     - ```jsx
-      ... 객체/배열이름
+    ... 객체/배열이름
       ```
 
     - 참고 : https://learnjs.vlpt.us/useful/07-spread-and-rest.html
@@ -187,17 +189,17 @@
     - input 입력란에 아무것도 입력되지 않았을 때 디폴트로 쓰여져있는 문구
 
   - value 속성
-
-    - input 입력란이 렌더링될 때 입력되어있는 초기값
+  
+  - input 입력란이 렌더링될 때 입력되어있는 초기값
     - placeholder는 뭔가를 입력하면 자동으로 없어지지만, value는 직접 지워야함
 
   - 메커니즘
-
+  
     1. name="name"인 input란에 '고'가 쓰여짐 -> e.target.value='고'
     2. 변화를 onChange가 감지해서 onChange함수 호출
     3. 비구조화 할당에 의해 value=e.target.value, name=e.target.name
     4. inputs를 setInputs를 통해 만든 새 객체로 바꿔치기함
-    5. 리렌더링되어 (=InputSample 함수가 다시 호출됨) 바뀐 {name}, {nickname}이 적용됨
+  5. 리렌더링되어 (=InputSample 함수가 다시 호출됨) 바뀐 {name}, {nickname}이 적용됨
     6. name="name"인 input란('고'가 쓰여진 상태)에 '다'가 쓰여짐-> e.target.value='고다'
-
+  
        ...

@@ -1,6 +1,6 @@
 ## 10. useRef
 
-#### useRef 함수
+### useRef 함수
 
 - React Hooks에서 제공하는 API
 
@@ -10,18 +10,25 @@
   import React, {useRef} from 'react';
   ```
 
-- 특정 DOM을 선택할 수 있게 함
+- ```jsx
+  const nameInput = useRef();
+  ```
 
-  - cf) JavaScript에서는 getElementById 같은 DOM Selector함수로 특정 DOM을 선택
+  - useRef는 current 속성을 가진 Ref 객체를 반환함
+  - 파라미터로 넘어온 기본값을 current 속성에 할당함(.current)
+  - current 속성의 값을 변경해도 컴포넌트가 리랜더링 되지 않음
+  - 컴포넌트가 리랜더링돼도 current 속성의 값이 날라가지 않음
 
+#### 용도
+
+#### 1. 특정 DOM을 선택할 수 있게 함
+
+- cf) JavaScript에서는 `getElementById` 같은 DOM Selector함수로 특정 DOM을 선택
 - 사용 예시
-
   - 특정 엘리먼트의 크기를 가져올 때
   - 스크롤바 위치를 가져올 때
   - 포커스를 설정할 때
   - 외부 라이브러리를 특정 DOM에 적용할 때
-
-<br><br>
 
 예시
 
@@ -84,18 +91,7 @@
   export default InputSample;
   ```
 
-  - **useRef 함수**
-
-    ```jsx
-    const nameInput = useRef();
-    ```
-
-    - useRef는 current 속성을 가진 Ref 객체(=nameInput)를 반환함
-    - 파라미터로 넘어온 초기값을 current 속성에 할당함
-    - current 속성의 값을 변경해도 컴포넌트가 리랜더링 되지 않음
-    - 컴포넌트가 리랜더링돼도 current 속성의 값이 날라가지 않음
-
-    #### 사용
+  - **useRef함수로 특정 DOM을 가리키는 방법** 
 
     1. **useRef함수**를 호출해서 Ref 객체를 생성
 
@@ -115,4 +111,31 @@
        nameInput.current.focus();
        ```
 
-       
+<br>
+
+#### 2. 컴포넌트 안에서 조회, 수정할 수 있는 변수를 관리
+
+useRef로 관리하는 변수는
+
+-  값을 변경해도 컴포넌트가 리렌더링 되지 않음
+  - cf) 상태는 값을 변경하면 리렌더링됨
+- 값을 변경 후 리렌더링 없이 바로 조회할 수 있음
+  - cf) 상태는 Setter함수를 통해 값을 변경하면, 리렌더링 후에야 변경된 상태를 조회할 수 있음 
+
+<br>
+
+- 사용 예시
+  - `setTimeout`, `setInterval` 을 통해서 만들어진 id 관리
+  - 외부 라이브러리를 사용하여 생성된 인스턴스 관리
+  - scroll 위치 관리
+
+예시
+
+- ```jsx
+  const nextId = useRef(4); //nextId.current = 4
+  const onCreate = () => {
+    nextId.current += 1; //렌더링 없이 nextId.current값 변경
+  }
+  ```
+
+  

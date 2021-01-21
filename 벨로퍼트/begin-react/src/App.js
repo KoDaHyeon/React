@@ -63,7 +63,7 @@ function App() {
       //setUsers([...users, user]); //배열을 직접 수정하면 안됨. 
       //spread문법을 통해 기존 users배열을 펼쳐서 복사해온뒤, user객체를 추가해서 새로운 배열을 생성
       //그 새로운 배열로 users를 설정
-      setUsers(users.concat(user)); //users에 user객체를 추가한 새로운 배열로 users를 설정
+      setUsers(users => users.concat(user)); //함수형 업데이트(최적화를 위함)
       setInputs({
         username: '',
         email: ''
@@ -75,7 +75,7 @@ function App() {
 
   const onRemove = useCallback(
       id => {
-      setUsers(users.filter(user => user.id !== id));
+      setUsers(users => users.filter(user => user.id !== id));
       //users 배열에서 각 원소를 파라미터 user로 받을 때, user.id !== id가 true인 원소만 추출해서 새 배열 만듦
       },
       [users]
@@ -83,7 +83,7 @@ function App() {
 
   const onToggle = useCallback(
     id => {
-      setUsers(
+      setUsers(users =>
         users.map(user =>
           user.id === id ? {...user, active: !user.active} : user)
       );
@@ -111,7 +111,7 @@ function App() {
         email={email}
         onChange={onChange}
         onCreate={onCreate}
-       />
+      />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
       <div>활성사용자 수 : {count}</div>
     </>

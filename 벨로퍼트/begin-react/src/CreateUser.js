@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CreateUser({username, email, onChange, onCreate}){
+const CreateUser = ({username, email, onChange, onCreate}) => {
   return(
     <div>
       <input
@@ -18,6 +18,9 @@ function CreateUser({username, email, onChange, onCreate}){
       <button onClick={onCreate}>등록</button>
     </div>
   );
-}
+};
 
-export default CreateUser;
+export default React.memo(CreateUser);
+//React.memo : 컴포넌트의 props가 바뀌었을 때만 컴포넌트를 리렌더링하도록 설정
+//이거 안하면 props가 그대로인데 쓸데없이 컴포넌트를 리렌더링함
+//React.memo(불필요한 렌더링 방지하고 싶은 컴포넌트)

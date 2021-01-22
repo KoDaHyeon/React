@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Counter from './Counter';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render( //실제 브라우저의 DOM의 내부에, 리액트 컴포넌트를 렌더링

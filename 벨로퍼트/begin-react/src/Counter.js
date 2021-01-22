@@ -1,5 +1,41 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 
+function reducer(state, action){ //현재 상태, action객체(주로 키로 type을 가짐)
+  switch(action.type){
+    case 'INCREMENT':
+      return state + 1; //새로운 상태를 반환
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+function Counter(){
+  const [number, dispatch] = useReducer(reducer, 0);
+  //number:상태, dispatch:액션을 발생시키는 함수(상태를 변경하는 함수)
+  //dispatch(액션객체) 형태로 사용
+  //첫번째 파라미터:reducer함수, 두번째 파라미터:상태 초기값
+  //dispatch 함수는 reducer를 거치면서 새로 가공한 state
+
+  const onIncrease = () => {
+    dispatch({type: 'INCREMENT'});
+  };
+
+  const onDecrease = () => {
+    dispatch({type: 'DECREMENT'});
+  };
+
+  return(
+    <div>
+      <h1>{number}</h1>
+      <button onClick={onIncrease}>+1</button>
+      <button onClick={onDecrease}>-1</button>
+    </div>
+  );
+}
+
+/*
 function Counter(){
   const [number, setNumber] = useState(0);
     //useState는 react 패키지에서 불러온 함수. 파라미터로 상태의 기본값을 넣음
@@ -25,12 +61,12 @@ function Counter(){
       <h1>{number}</h1>
       <button onClick={onIncrease}>+1</button>
       <button onClick={onDecrease}>-1</button>
-      {/* on이벤트이름={실행할함수이름} */}
-      {/* '실행할함수이름'만 넣어줘야 함. 
-          onIncrease()이렇게 괄호까지 넣으면 렌더링되는 시점에 함수가 호출되버림.
-      */}
     </div>
   );
+    //on이벤트이름={실행할함수이름}
+    //실행할함수이름'만 넣어줘야 함. 
+    //onIncrease()이렇게 괄호까지 넣으면 렌더링되는 시점에 함수가 호출되버림.
 }
+*/
 
 export default Counter;

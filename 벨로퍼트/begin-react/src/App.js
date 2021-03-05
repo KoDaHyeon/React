@@ -1,6 +1,7 @@
 import React, {useRef, useReducer, useMemo, useCallback} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
+import useInputs from './hooks/useInputs';
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
@@ -8,10 +9,6 @@ function countActiveUsers(users) {
 }
 
 const initialState = { //초기 상태들
-  inputs: {
-    username: '',
-    email: ''
-  },
   users: [
     {
       id: 1,
@@ -36,6 +33,7 @@ const initialState = { //초기 상태들
 
 function reducer(state, action){
   switch(action.type){
+    /*
     case 'CHANGE_INPUT': //onChange
       return{
         ...state, 
@@ -45,9 +43,10 @@ function reducer(state, action){
           [action.name]: action.value
         }
       };
+    */
     case 'CREATE_USER':
       return{
-        inputs: initialState.inputs,
+        //inputs: initialState.inputs,
         users: state.users.concat(action.user)
       };
     case 'TOGGLE_USER':
